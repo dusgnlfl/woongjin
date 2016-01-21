@@ -19,4 +19,16 @@
         sl:scale_width = "280"
         sl:scale_height = "140"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        sl:scale_textsize="50"
+        android:text="2단계"
+        android:id="@+id/btn2"
+        android:onClick="onClick"
+        sl:scale_left = "0"
+        sl:scale_top = "150"
+        sl:scale_width = "280"
+        sl:scale_height = "140"/>
+
 </com.ssomai.android.scalablelayout.ScalableLayout>

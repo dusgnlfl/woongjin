@@ -17,6 +17,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         findViewById(R.id.btn1).setOnClickListener(btnClickListener);
+        findViewById(R.id.btn2).setOnClickListener(btnClickListener);
 
     }
 
@@ -26,6 +27,10 @@ public class MainActivity extends ActionBarActivity {
                 case R.id.btn1:
                     Intent intent1 = new Intent(MainActivity.this, ColorMix.class);
                     startActivity(intent1);
+                    break;
+                case R.id.btn2:
+                    Intent intent2 = new Intent(MainActivity.this, ColorMix2.class);
+                    startActivity(intent2);
                     break;
             }
         }
