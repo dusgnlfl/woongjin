@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ssomai.android.scalablelayout.ScalableLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:sl="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    sl:scale_base_width = "1280"
+    sl:scale_base_height = "800" >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/mission"
+        android:id="@+id/imageView2"
+        sl:scale_top = "0"
+        sl:scale_left = "0"
+        sl:scale_height = "140"
+        sl:scale_width = "1280"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="두 가지 색으로 **색을 만들어보세요!"
+        android:id="@+id/textView"
+        sl:scale_textsize = "50"
+        sl:scale_left = "150"
+        sl:scale_top = "35"
+        sl:scale_width = "1240"
+        sl:scale_height = "60"/>
+
+    <ImageView
+        android:id="@+id/board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/board"
+        sl:scale_left = "440"
+        sl:scale_top = "180"
+        sl:scale_width = "400"
+        sl:scale_height = "400"
+        />
+
+    <ImageView
+        android:id="@+id/board_L"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        sl:scale_left = "440"
+        sl:scale_top = "180"
+        sl:scale_width = "400"
+        sl:scale_height = "400"/>
+
+    <ImageView
+        android:id="@+id/board_R"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        sl:scale_left = "440"
+        sl:scale_top = "180"
+        sl:scale_width = "400"
+        sl:scale_height = "400"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아래의 컬러 팔레트에서 색을 선택하세요."
+        sl:scale_textsize = "40"
+        sl:scale_left = "20"
+        sl:scale_top = "600"
+        sl:scale_width = "1240"
+        sl:scale_height = "50" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ColBtnRed"
+        android:background="@color/color_red"
+        android:onClick = "onClick"
+        sl:scale_left = "0"
+        sl:scale_top = "655"
+        sl:scale_width = "256"
+        sl:scale_height = "145"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ColBtnYellow"
+        android:background="@color/color_yellow"
+        android:onClick = "onClick"
+        sl:scale_left = "256"
+        sl:scale_top = "655"
+        sl:scale_width = "256"
+        sl:scale_height = "145"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ColBtnGreen"
+        android:background="@color/color_green"
+        android:onClick = "onClick"
+        sl:scale_left = "512"
+        sl:scale_top = "655"
+        sl:scale_width = "256"
+        sl:scale_height = "145"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ColBtnBlue"
+        android:background="@color/color_blue"
+        android:onClick = "onClick"
+        sl:scale_left = "768"
+        sl:scale_top = "655"
+        sl:scale_width = "256"
+        sl:scale_height = "145"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ColBtnPurple"
+        android:background="@color/color_purple"
+        android:onClick = "onClick"
+        sl:scale_left = "1024"
+        sl:scale_top = "655"
+        sl:scale_width = "256"
+        sl:scale_height = "145"/>
+
+</com.ssomai.android.scalablelayout.ScalableLayout>
