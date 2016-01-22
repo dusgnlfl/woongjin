@@ -1,16 +1,22 @@
 package com.wjthinkbig.ColorStudy;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 /**
  * Created by Administrator on 2016-01-21.
  */
-public class ColorMix2 extends Activity{
+public class ColorMix2 extends Activity implements SensorEventListener {
 
     Button ColBtnRed, ColBtnYellow, ColBtnGreen, ColBtnBlue, ColBtnPurple;
 
@@ -20,7 +26,18 @@ public class ColorMix2 extends Activity{
     Drawable board_3_green1, board_3_green2, board_3_green3, board_3_blue1, board_3_blue2, board_3_blue3;
     Drawable board_3_purple1, board_3_purple2, board_3_purple3;
 
-    int turn;
+    long lastTime;
+    float speed, lastX, lastY, lastZ, x, y, z;
+
+    static final int SHAKE_THRESHOLD = 800;
+    static final int DATA_X = SensorManager.DATA_X;
+    static final int DATA_Y = SensorManager.DATA_Y;
+    static final int DATA_Z = SensorManager.DATA_Z;
+
+    SensorManager sensorManager;
+    Sensor accelerormeterSensor;
+
+    int turn, result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +73,11 @@ public class ColorMix2 extends Activity{
         board_3_purple2 = getResources().getDrawable(R.mipmap.board_3_purple2);
         board_3_purple3 = getResources().getDrawable(R.mipmap.board_3_purple3);
 
-        turn = 0;
-        //turn이 0이면 첫번째 색 조각 채워짐, 1이면 두 번째, 2이면 세 번째 색이 채워진다.
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        accelerormeterSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+
+        turn = 0;//turn이 0이면 첫번째 색 조각 채워짐, 1이면 두 번째, 2이면 세 번째 색이 채워진다.
+        result = 0; //result가 1이면 shake 가능
         View.OnClickListener listener = new View.OnClickListener() {
             public void onClick(View v) {
                 switch (v.getId()) {
@@ -65,14 +85,18 @@ public class ColorMix2 extends Activity{
                         if(turn == 0) {
                             board_1.setImageDrawable(board_3_red1);
                             turn = 1;
+                            result = 0;
                         }
                         else if(turn == 1){
                             board_2.setImageDrawable(board_3_red2);
                             turn = 2;
+                            result = 0;
                         }
                         else {
                             board_3.setImageDrawable(board_3_red3);
                             turn = 0;
+                            result = 1;
+                            Toast.makeText(getApplicationContext(), "휴대폰을 한 번 흔들어 색을 섞어보세요!", Toast.LENGTH_SHORT).show();
                         }
                         break;
 
@@ -80,14 +104,18 @@ public class ColorMix2 extends Activity{
                         if(turn == 0) {
                             board_1.setImageDrawable(board_3_yellow1);
                             turn = 1;
+                            result = 0;
                         }
                         else if(turn == 1){
                             board_2.setImageDrawable(board_3_yellow2);
                             turn = 2;
+                            result = 0;
                         }
                         else {
                             board_3.setImageDrawable(board_3_yellow3);
                             turn = 0;
+                            result = 1;
+                            Toast.makeText(getApplicationContext(), "휴대폰을 한 번 흔들어 색을 섞어보세요!", Toast.LENGTH_SHORT).show();
                         }
                         break;
 
@@ -95,14 +123,18 @@ public class ColorMix2 extends Activity{
                         if(turn == 0) {
                             board_1.setImageDrawable(board_3_green1);
                             turn = 1;
+                            result = 0;
                         }
                         else if(turn == 1){
                             board_2.setImageDrawable(board_3_green2);
                             turn = 2;
+                            result = 0;
                         }
                         else {
                             board_3.setImageDrawable(board_3_green3);
                             turn = 0;
+                            result = 1;
+                            Toast.makeText(getApplicationContext(), "휴대폰을 한 번 흔들어 색을 섞어보세요!", Toast.LENGTH_SHORT).show();
                         }
                         break;
 
@@ -110,14 +142,18 @@ public class ColorMix2 extends Activity{
                         if(turn == 0) {
                             board_1.setImageDrawable(board_3_blue1);
                             turn = 1;
+                            result = 0;
                         }
                         else if(turn == 1){
                             board_2.setImageDrawable(board_3_blue2);
                             turn = 2;
+                            result = 0;
                         }
                         else {
                             board_3.setImageDrawable(board_3_blue3);
                             turn = 0;
+                            result = 1;
+                            Toast.makeText(getApplicationContext(), "휴대폰을 한 번 흔들어 색을 섞어보세요!", Toast.LENGTH_SHORT).show();
                         }
                         break;
 
@@ -125,14 +161,18 @@ public class ColorMix2 extends Activity{
                         if(turn == 0) {
                             board_1.setImageDrawable(board_3_purple1);
                             turn = 1;
+                            result = 0;
                         }
                         else if(turn == 1){
                             board_2.setImageDrawable(board_3_purple2);
                             turn = 2;
+                            result = 0;
                         }
                         else {
                             board_3.setImageDrawable(board_3_purple3);
                             turn = 0;
+                            result = 1;
+                            Toast.makeText(getApplicationContext(), "휴대폰을 한 번 흔들어 색을 섞어보세요!", Toast.LENGTH_SHORT).show();
                         }
                         break;
                 }
@@ -145,6 +185,53 @@ public class ColorMix2 extends Activity{
         ColBtnGreen.setOnClickListener(listener);
         ColBtnBlue.setOnClickListener(listener);
         ColBtnPurple.setOnClickListener(listener);
+
+    }
+
+    ///////////////////////////////////////////////////////////가속도 센서//////////////////
+    public void onStart() {
+        super.onStart();
+        if (accelerormeterSensor != null)
+            sensorManager.registerListener(this, accelerormeterSensor,
+                    SensorManager.SENSOR_DELAY_GAME);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (sensorManager != null)
+            sensorManager.unregisterListener(this);
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+            long currentTime = System.currentTimeMillis();
+            long gabOfTime = (currentTime - lastTime);
+            if (gabOfTime > 100) {
+                lastTime = currentTime;
+                x = event.values[SensorManager.DATA_X];
+                y = event.values[SensorManager.DATA_Y];
+                z = event.values[SensorManager.DATA_Z];
+
+                speed = Math.abs(x + y + z - lastX - lastY - lastZ) / gabOfTime * 10000;
+
+                if ((speed > SHAKE_THRESHOLD) && (result == 1)) {
+                    ////////////////// 이벤트발생!!
+                    Intent intent_ColorMix2 = new Intent(ColorMix2.this, Result.class);
+                    startActivity(intent_ColorMix2);
+                }
+
+                lastX = event.values[DATA_X];
+                lastY = event.values[DATA_Y];
+                lastZ = event.values[DATA_Z];
+            }
+
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
     }
 }
