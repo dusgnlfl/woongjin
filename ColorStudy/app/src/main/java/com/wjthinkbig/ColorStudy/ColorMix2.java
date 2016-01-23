@@ -8,9 +8,13 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 /**
@@ -19,6 +23,9 @@ import android.widget.Toast;
 public class ColorMix2 extends Activity implements SensorEventListener {
 
     Button ColBtnRed, ColBtnYellow, ColBtnGreen, ColBtnBlue, ColBtnPurple;
+
+    Button ChangeBtn;
+    ImageView character;
 
     ImageView board_1, board_2, board_3;
 
@@ -44,6 +51,8 @@ public class ColorMix2 extends Activity implements SensorEventListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.color_mix_main2);
 
+        ChangeBtn=(Button)findViewById(R.id.Changebtn);
+        character=(ImageView)findViewById(R.id.cookie);
         //팔레트 버튼 가져오기
         ColBtnRed = (Button) findViewById(R.id.ColBtnRed);
         ColBtnYellow = (Button) findViewById(R.id.ColBtnYellow);
@@ -188,6 +197,35 @@ public class ColorMix2 extends Activity implements SensorEventListener {
 
     }
 
+    public void monClick(View v) {
+        PopupMenu popup=new PopupMenu(this, v);
+        MenuInflater inflater=popup.getMenuInflater();
+        Menu menu=popup.getMenu();
+        inflater.inflate(R.menu.cookiemenu, menu);
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.banana:
+                        character.setImageResource(R.drawable.bana);
+                        break;
+                    case R.id.berry:
+                        character.setImageResource(R.drawable.berry);
+                        break;
+                    case R.id.apple:
+                        character.setImageResource(R.drawable.apple);
+                        break;
+                    case R.id.choco:
+                        character.setImageResource(R.drawable.choco);
+                        break;
+                    case R.id.kiwi:
+                        character.setImageResource(R.drawable.kiwi);
+                        break;
+                }
+                return false;
+            }
+        });
+        popup.show();
+    }
     ///////////////////////////////////////////////////////////가속도 센서//////////////////
     public void onStart() {
         super.onStart();

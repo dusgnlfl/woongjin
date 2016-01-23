@@ -41,6 +41,27 @@
         />
 
     <ImageView
+    android:id="@+id/cookie"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    sl:scale_left = "80"
+    sl:scale_top = "150"
+    sl:scale_width = "300"
+    sl:scale_height = "300"
+    />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Changebtn"
+        android:text="캐릭터변경"
+        sl:scale_textsize="50"
+        android:onClick = "monClick"
+        sl:scale_left = "65"
+        sl:scale_top = "450"
+        sl:scale_width = "320"
+        sl:scale_height = "130"/>
+
+    <ImageView
         android:id="@+id/board_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

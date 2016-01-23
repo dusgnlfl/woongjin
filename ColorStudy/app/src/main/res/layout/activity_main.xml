@@ -2,6 +2,7 @@
 <com.ssomai.android.scalablelayout.ScalableLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/back"
     xmlns:sl="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     sl:scale_base_width = "1280"
@@ -14,8 +15,8 @@
         android:text="1단계"
         android:id="@+id/btn1"
         android:onClick="onClick"
-        sl:scale_left = "0"
-        sl:scale_top = "0"
+        sl:scale_left = "480"
+        sl:scale_top = "500"
         sl:scale_width = "280"
         sl:scale_height = "140"/>
 
@@ -26,8 +27,8 @@
         android:text="2단계"
         android:id="@+id/btn2"
         android:onClick="onClick"
-        sl:scale_left = "0"
-        sl:scale_top = "150"
+        sl:scale_left = "480"
+        sl:scale_top = "650"
         sl:scale_width = "280"
         sl:scale_height = "140"/>
 
