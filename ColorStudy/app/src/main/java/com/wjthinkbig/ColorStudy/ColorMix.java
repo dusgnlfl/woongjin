@@ -2,6 +2,7 @@ package com.wjthinkbig.ColorStudy;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -18,12 +19,18 @@ import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
+import java.util.Random;
+
 /**
  * Created by Administrator on 2016-01-19.
  */
 public class ColorMix extends Activity implements SensorEventListener {
 
     Button ColBtnRed, ColBtnYellow, ColBtnGreen, ColBtnBlue, ColBtnPurple;
+
+    /////////////////////////
+    Button missionColor;
+    int color;
 
     Button ChangeBtn;
     ImageView character;
@@ -51,6 +58,17 @@ public class ColorMix extends Activity implements SensorEventListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.color_mix_main);
+
+        ///////////////////////미션 색 나오는 버튼////////////////////
+        int colors[] = {getResources().getColor(R.color.color_red), getResources().getColor(R.color.color_yellow), getResources().getColor(R.color.color_green)
+                , getResources().getColor(R.color.color_blue), getResources().getColor(R.color.color_purple)};
+
+        int random = (int) (Math.random() * 5); //0~4 까지 랜덤 수 만들기
+        color = random; //인텐트 넘길때 쓸 color 정보
+
+        missionColor = (Button)findViewById(R.id.missionColor); //미션 색 나타내기
+        missionColor.setBackgroundColor(colors[random]);
+        //////////////////////////////////////////////////////////////////////////////
 
         ChangeBtn=(Button)findViewById(R.id.Changebtn);
         character=(ImageView)findViewById(R.id.cookie);

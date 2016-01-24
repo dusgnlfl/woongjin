@@ -18,10 +18,19 @@
         sl:scale_width = "1280"
         />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/missionColor"
+        sl:scale_left = "450"
+        sl:scale_top = "5"
+        sl:scale_width = "150"
+        sl:scale_height = "130"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="두 가지 색으로 **색을 만들어보세요!"
+        android:text="두 가지 색으로            색을 만들어보세요!"
         android:id="@+id/textView"
         sl:scale_textsize = "50"
         sl:scale_left = "150"

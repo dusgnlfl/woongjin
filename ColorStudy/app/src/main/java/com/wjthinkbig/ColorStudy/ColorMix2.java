@@ -24,6 +24,10 @@ public class ColorMix2 extends Activity implements SensorEventListener {
 
     Button ColBtnRed, ColBtnYellow, ColBtnGreen, ColBtnBlue, ColBtnPurple;
 
+    /////////////////////////
+    Button missionColor;
+    int color;
+
     Button ChangeBtn;
     ImageView character;
 
@@ -50,6 +54,17 @@ public class ColorMix2 extends Activity implements SensorEventListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.color_mix_main2);
+
+        ///////////////////////미션 색 나오는 버튼////////////////////
+        int colors[] = {getResources().getColor(R.color.color_red), getResources().getColor(R.color.color_yellow), getResources().getColor(R.color.color_green)
+                , getResources().getColor(R.color.color_blue), getResources().getColor(R.color.color_purple)};
+
+        int random = (int) (Math.random() * 5); //0~4 까지 랜덤 수 만들기
+        color = random; //인텐트 넘길때 쓸 color 정보
+
+        missionColor = (Button)findViewById(R.id.missionColor); //미션 색 나타내기
+        missionColor.setBackgroundColor(colors[random]);
+        //////////////////////////////////////////////////////////////////////////////
 
         ChangeBtn=(Button)findViewById(R.id.Changebtn);
         character=(ImageView)findViewById(R.id.cookie);
