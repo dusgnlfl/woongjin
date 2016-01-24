@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ssomai.android.scalablelayout.ScalableLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:sl="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    sl:scale_base_width = "1280"
+    sl:scale_base_height = "800" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" 결과 화면2"
+        sl:scale_textsize = "50"
+        sl:scale_left = "0"
+        sl:scale_top = "0"
+        sl:scale_width = "1280"
+        sl:scale_height = "140"/>
+
+</com.ssomai.android.scalablelayout.ScalableLayout>

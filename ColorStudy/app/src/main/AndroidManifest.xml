@@ -19,6 +19,7 @@
         <activity android:name=".ColorMix"></activity>
         <activity android:name=".ColorMix2"></activity>
         <activity android:name=".Result"></activity>
+        <activity android:name=".Result2"></activity>
     </application>
 
 </manifest>

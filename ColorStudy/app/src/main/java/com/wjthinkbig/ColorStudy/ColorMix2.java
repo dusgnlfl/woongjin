@@ -256,7 +256,7 @@ public class ColorMix2 extends Activity implements SensorEventListener {
 
                 if ((speed > SHAKE_THRESHOLD) && (result == 1)) {
                     ////////////////// 이벤트발생!!
-                    Intent intent_ColorMix2 = new Intent(ColorMix2.this, Result.class);
+                    Intent intent_ColorMix2 = new Intent(ColorMix2.this, Result2.class);
                     startActivity(intent_ColorMix2);
                 }
 
