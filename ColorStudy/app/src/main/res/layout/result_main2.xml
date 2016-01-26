@@ -7,14 +7,65 @@
     sl:scale_base_width = "1280"
     sl:scale_base_height = "800" >
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" 결과 화면2"
-        sl:scale_textsize = "50"
+        android:src="@drawable/together"
+        sl:scale_top = "10"
         sl:scale_left = "0"
-        sl:scale_top = "0"
+        sl:scale_height = "380"
         sl:scale_width = "1280"
-        sl:scale_height = "140"/>
+        />
+
+    <ImageView
+        android:id="@+id/answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        sl:scale_left = "140"
+        sl:scale_top = "410"
+        sl:scale_width = "1000"
+        sl:scale_height = "200"
+        />
+
+    <Button
+        android:id="@+id/btnTrue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        sl:scale_textsize = "50"
+        android:text = "다른 문제 풀기"
+        sl:scale_left = "100"
+        sl:scale_top = "660"
+        sl:scale_width = "490"
+        sl:scale_height = "140"
+        android:visibility="invisible"
+        android:onClick = "onClick"
+        />
+
+    <Button
+        android:id="@+id/btnFalse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        sl:scale_textsize = "50"
+        android:text = "다시 풀기"
+        sl:scale_left = "100"
+        sl:scale_top = "660"
+        sl:scale_width = "490"
+        sl:scale_height = "140"
+        android:visibility="invisible"
+        android:onClick = "onClick"
+        />
+
+    <Button
+        android:id="@+id/exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        sl:scale_textsize = "50"
+        android:text = "나가기"
+        sl:scale_left = "690"
+        sl:scale_top = "660"
+        sl:scale_width = "490"
+        sl:scale_height = "140"
+        android:onClick = "onClick"
+        />
 
 </com.ssomai.android.scalablelayout.ScalableLayout>

@@ -30,7 +30,8 @@ public class ColorMix extends Activity implements SensorEventListener {
 
     /////////////////////////
     Button missionColor;
-    int color;
+    public int random, color;//*************************************************************************************************************************
+    boolean anw;//*************************************************************************************************************************
 
     Button ChangeBtn;
     ImageView character;
@@ -60,11 +61,17 @@ public class ColorMix extends Activity implements SensorEventListener {
         setContentView(R.layout.color_mix_main);
 
         ///////////////////////미션 색 나오는 버튼////////////////////
-        int colors[] = {getResources().getColor(R.color.color_red), getResources().getColor(R.color.color_yellow), getResources().getColor(R.color.color_green)
+        final int colors[] = {getResources().getColor(R.color.color_red), getResources().getColor(R.color.color_yellow), getResources().getColor(R.color.color_green)
                 , getResources().getColor(R.color.color_blue), getResources().getColor(R.color.color_purple)};
 
-        int random = (int) (Math.random() * 5); //0~4 까지 랜덤 수 만들기
+        random = (int) (Math.random() * 5); //0~4 까지 랜덤 수 만들기
         color = random; //인텐트 넘길때 쓸 color 정보
+
+        Intent fromResult = getIntent();//*************************************************************************************************************************
+        if(fromResult.getIntExtra("color", 1000) != 1000) {
+            color = fromResult.getIntExtra("color", 1000);
+            random = color;
+        }//*************************************************************************************************************************
 
         missionColor = (Button)findViewById(R.id.missionColor); //미션 색 나타내기
         missionColor.setBackgroundColor(colors[random]);
@@ -246,6 +253,9 @@ public class ColorMix extends Activity implements SensorEventListener {
                 if ((speed > SHAKE_THRESHOLD) && (result == 1)) {
                     ////////////////// 이벤트발생!!
                     Intent intent_ColorMix = new Intent(ColorMix.this, Result.class);
+                    intent_ColorMix.putExtra("color", color);//*************************************************************************************************************************
+                    intent_ColorMix.putExtra("anw", anw);//*************************************************************************************************************************
+                    intent_ColorMix.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);//*************************************************************************************************************************
                     startActivity(intent_ColorMix);
                 }
 
