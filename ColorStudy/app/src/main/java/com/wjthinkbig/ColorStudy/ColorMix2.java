@@ -301,6 +301,7 @@ public class ColorMix2 extends Activity implements SensorEventListener {
                     intent_ColorMix2.putExtra("anw", anw);//*************************************************************************************************************************
                     intent_ColorMix2.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);//*************************************************************************************************************************
                     startActivity(intent_ColorMix2);
+                    finish();
                 }
 
                 lastX = event.values[DATA_X];

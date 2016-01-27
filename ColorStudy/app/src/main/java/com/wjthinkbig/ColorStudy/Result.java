@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,6 +15,8 @@ import com.ssomai.android.scalablelayout.ScalableLayout;
  * Created by Administrator on 2016-01-22.
  */
 public class Result extends Activity {
+
+    private BackPressCloseSystem backPressCloseSystem;
 
     int color; //미션 컬러
     boolean anw; //정답 맞췄으면 true, 틀렸으면 false
@@ -30,6 +31,8 @@ public class Result extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.result_main);
+
+        backPressCloseSystem = new BackPressCloseSystem(this);
 
         ///////////////////////////////////////////////////////////////////
         int colors[] = {getResources().getColor(R.color.color_red), getResources().getColor(R.color.color_yellow), getResources().getColor(R.color.color_green)
@@ -71,18 +74,21 @@ public class Result extends Activity {
                         Intent goColorMix = new Intent(Result.this, ColorMix.class);
                         goColorMix.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                         startActivity(goColorMix);
+                        finish();
                         break;
 
                     case R.id.btnFalse:
                         Intent goColorMixx = new Intent(Result.this, ColorMix.class);
                         goColorMixx.putExtra("color", color);
                         startActivity(goColorMixx);
+                        finish();
                         break;
 
                     case R.id.exit: //나가기 버튼 -> 메인화면으로 이동
                         Intent goMain = new Intent(Result.this, MainActivity.class);
                         goMain.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                         startActivity(goMain);
+                        finish();
                         break;
                 }
             }
@@ -94,4 +100,8 @@ public class Result extends Activity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        backPressCloseSystem.onBackPressed();
+    }
 }

@@ -32,10 +32,12 @@ public class MainActivity extends Activity {
                 case R.id.btn1:
                     Intent intent1 = new Intent(MainActivity.this, ColorMix.class);
                     startActivity(intent1);
+                    finish();
                     break;
                 case R.id.btn2:
                     Intent intent2 = new Intent(MainActivity.this, ColorMix2.class);
                     startActivity(intent2);
+                    finish();
                     break;
             }
         }

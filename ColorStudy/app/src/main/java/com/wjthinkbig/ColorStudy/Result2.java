@@ -16,6 +16,8 @@ import com.ssomai.android.scalablelayout.ScalableLayout;
  */
 public class Result2 extends Activity {
 
+    private BackPressCloseSystem backPressCloseSystem;
+
     int color; //미션 컬러
     boolean anw; //정답 맞췄으면 true, 틀렸으면 false
 
@@ -29,6 +31,8 @@ public class Result2 extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.result_main2);
+
+        backPressCloseSystem = new BackPressCloseSystem(this);
 
         ///////////////////////////////////////////////////////////////////
         int colors[] = {getResources().getColor(R.color.color_red), getResources().getColor(R.color.color_yellow), getResources().getColor(R.color.color_green)
@@ -70,18 +74,21 @@ public class Result2 extends Activity {
                         Intent goColorMix = new Intent(Result2.this, ColorMix2.class);
                         goColorMix.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                         startActivity(goColorMix);
+                        finish();
                         break;
 
                     case R.id.btnFalse:
                         Intent goColorMixx = new Intent(Result2.this, ColorMix2.class);
                         goColorMixx.putExtra("color", color);
                         startActivity(goColorMixx);
+                        finish();
                         break;
 
                     case R.id.exit: //나가기 버튼 -> 메인화면으로 이동
                         Intent goMain = new Intent(Result2.this, MainActivity.class);
                         goMain.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                         startActivity(goMain);
+                        finish();
                         break;
                 }
             }
@@ -91,6 +98,11 @@ public class Result2 extends Activity {
         btnFalse.setOnClickListener(listener);
         exit.setOnClickListener(listener);
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        backPressCloseSystem.onBackPressed();
     }
 
 }
