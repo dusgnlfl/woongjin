@@ -64,9 +64,13 @@ public class ColorMix2 extends Activity implements SensorEventListener {
 
         ///////////////////////미션 색 나오는 버튼////////////////////
         int colors[] = {getResources().getColor(R.color.color_red), getResources().getColor(R.color.color_yellow), getResources().getColor(R.color.color_green)
-                , getResources().getColor(R.color.color_blue), getResources().getColor(R.color.color_purple)};
+                , getResources().getColor(R.color.color_blue), getResources().getColor(R.color.color_purple)
+                , getResources().getColor(R.color.orange), getResources().getColor(R.color.yellowGreen), getResources().getColor(R.color.blueGreen)
+                , getResources().getColor(R.color.bluishViolet), getResources().getColor(R.color.plum)
+                , getResources().getColor(R.color.crimson), getResources().getColor(R.color.tangerine), getResources().getColor(R.color.greenYellow)
+                , getResources().getColor(R.color.grassGreen), getResources().getColor(R.color.sea), getResources().getColor(R.color.prussianBlue), getResources().getColor(R.color.madderRed)};
 
-        random = (int) (Math.random() * 5); //0~4 까지 랜덤 수 만들기
+        random = (int) ((Math.random() * 7) + 10); //10~16 까지 랜덤 수 만들기
         color = random; //인텐트 넘길때 쓸 color 정보
 
         Intent fromResult = getIntent();//*************************************************************************************************************************

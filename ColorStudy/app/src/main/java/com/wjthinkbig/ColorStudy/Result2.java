@@ -37,7 +37,11 @@ public class Result2 extends Activity {
 
         ///////////////////////////////////////////////////////////////////
         int colors[] = {getResources().getColor(R.color.color_red), getResources().getColor(R.color.color_yellow), getResources().getColor(R.color.color_green)
-                , getResources().getColor(R.color.color_blue), getResources().getColor(R.color.color_purple)};
+                , getResources().getColor(R.color.color_blue), getResources().getColor(R.color.color_purple)
+                , getResources().getColor(R.color.orange), getResources().getColor(R.color.yellowGreen), getResources().getColor(R.color.blueGreen)
+                , getResources().getColor(R.color.bluishViolet), getResources().getColor(R.color.plum)
+                , getResources().getColor(R.color.crimson), getResources().getColor(R.color.tangerine), getResources().getColor(R.color.greenYellow)
+                , getResources().getColor(R.color.grassGreen), getResources().getColor(R.color.sea), getResources().getColor(R.color.prussianBlue), getResources().getColor(R.color.madderRed)};
         rm2 = (ScalableLayout)findViewById(R.id.rm2);
         //////////////////////////////////////////////////////////////////////////
 
