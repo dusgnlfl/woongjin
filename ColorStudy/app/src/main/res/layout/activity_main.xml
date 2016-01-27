@@ -11,6 +11,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/round_btn"
+        android:textColor="#FFFFFF"
         sl:scale_textsize="50"
         android:text="1단계"
         android:id="@+id/btn1"
@@ -23,6 +25,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/round_btn"
+        android:textColor="#FFFFFF"
         sl:scale_textsize="50"
         android:text="2단계"
         android:id="@+id/btn2"
