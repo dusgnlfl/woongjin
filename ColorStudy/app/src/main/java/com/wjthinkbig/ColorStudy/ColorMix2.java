@@ -29,7 +29,7 @@ public class ColorMix2 extends Activity implements SensorEventListener {
     /////////////////////////
     Button missionColor;
     public int random, color;//*************************************************************************************************************************
-    boolean anw = true;//*************************************************************************************************************************
+    int firstCol, secondCol, thirdCol; //******************************************************************************
 
     Button ChangeBtn;
     ImageView character;
@@ -128,16 +128,19 @@ public class ColorMix2 extends Activity implements SensorEventListener {
                             board_1.setImageDrawable(board_3_red1);
                             turn = 1;
                             result = 0;
+                            firstCol = 0;
                         }
                         else if(turn == 1){
                             board_2.setImageDrawable(board_3_red2);
                             turn = 2;
                             result = 0;
+                            secondCol = 0;
                         }
                         else {
                             board_3.setImageDrawable(board_3_red3);
                             turn = 0;
                             result = 1;
+                            thirdCol = 0;
                             Toast.makeText(getApplicationContext(), "휴대폰을 한 번 흔들어 색을 섞어보세요!", Toast.LENGTH_SHORT).show();
                         }
                         break;
@@ -147,16 +150,19 @@ public class ColorMix2 extends Activity implements SensorEventListener {
                             board_1.setImageDrawable(board_3_yellow1);
                             turn = 1;
                             result = 0;
+                            firstCol = 1;
                         }
                         else if(turn == 1){
                             board_2.setImageDrawable(board_3_yellow2);
                             turn = 2;
                             result = 0;
+                            secondCol = 1;
                         }
                         else {
                             board_3.setImageDrawable(board_3_yellow3);
                             turn = 0;
                             result = 1;
+                            thirdCol = 1;
                             Toast.makeText(getApplicationContext(), "휴대폰을 한 번 흔들어 색을 섞어보세요!", Toast.LENGTH_SHORT).show();
                         }
                         break;
@@ -166,16 +172,19 @@ public class ColorMix2 extends Activity implements SensorEventListener {
                             board_1.setImageDrawable(board_3_green1);
                             turn = 1;
                             result = 0;
+                            firstCol = 2;
                         }
                         else if(turn == 1){
                             board_2.setImageDrawable(board_3_green2);
                             turn = 2;
                             result = 0;
+                            secondCol = 2;
                         }
                         else {
                             board_3.setImageDrawable(board_3_green3);
                             turn = 0;
                             result = 1;
+                            thirdCol = 2;
                             Toast.makeText(getApplicationContext(), "휴대폰을 한 번 흔들어 색을 섞어보세요!", Toast.LENGTH_SHORT).show();
                         }
                         break;
@@ -185,16 +194,19 @@ public class ColorMix2 extends Activity implements SensorEventListener {
                             board_1.setImageDrawable(board_3_blue1);
                             turn = 1;
                             result = 0;
+                            firstCol = 3;
                         }
                         else if(turn == 1){
                             board_2.setImageDrawable(board_3_blue2);
                             turn = 2;
                             result = 0;
+                            secondCol = 3;
                         }
                         else {
                             board_3.setImageDrawable(board_3_blue3);
                             turn = 0;
                             result = 1;
+                            thirdCol = 3;
                             Toast.makeText(getApplicationContext(), "휴대폰을 한 번 흔들어 색을 섞어보세요!", Toast.LENGTH_SHORT).show();
                         }
                         break;
@@ -204,16 +216,19 @@ public class ColorMix2 extends Activity implements SensorEventListener {
                             board_1.setImageDrawable(board_3_purple1);
                             turn = 1;
                             result = 0;
+                            firstCol = 4;
                         }
                         else if(turn == 1){
                             board_2.setImageDrawable(board_3_purple2);
                             turn = 2;
                             result = 0;
+                            secondCol = 4;
                         }
                         else {
                             board_3.setImageDrawable(board_3_purple3);
                             turn = 0;
                             result = 1;
+                            thirdCol = 4;
                             Toast.makeText(getApplicationContext(), "휴대폰을 한 번 흔들어 색을 섞어보세요!", Toast.LENGTH_SHORT).show();
                         }
                         break;
@@ -298,7 +313,9 @@ public class ColorMix2 extends Activity implements SensorEventListener {
                     ////////////////// 이벤트발생!!
                     Intent intent_ColorMix2 = new Intent(ColorMix2.this, Result2.class);
                     intent_ColorMix2.putExtra("color", color);//*************************************************************************************************************************
-                    intent_ColorMix2.putExtra("anw", anw);//*************************************************************************************************************************
+                    intent_ColorMix2.putExtra("firstCol", firstCol);
+                    intent_ColorMix2.putExtra("secondCol", secondCol);
+                    intent_ColorMix2.putExtra("thirdCol", thirdCol);
                     intent_ColorMix2.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);//*************************************************************************************************************************
                     startActivity(intent_ColorMix2);
                     finish();

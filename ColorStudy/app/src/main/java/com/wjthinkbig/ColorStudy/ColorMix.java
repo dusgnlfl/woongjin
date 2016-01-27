@@ -33,7 +33,7 @@ public class ColorMix extends Activity implements SensorEventListener {
     /////////////////////////
     Button missionColor;
     public int random, color;//*************************************************************************************************************************
-    boolean anw = true;//*************************************************************************************************************************
+    int firstCol, secondCol; //******************************************************************************
 
     Button ChangeBtn;
     ImageView character;
@@ -127,11 +127,13 @@ public class ColorMix extends Activity implements SensorEventListener {
                             board_L.setImageDrawable(board_2_red1);
                             turn = 1;
                             result = 0;
+                            firstCol = 0;
                         }
                         else {
                             board_R.setImageDrawable(board_2_red2);
                             turn = 0;
                             result = 1;
+                            secondCol = 0;
                             Toast.makeText(getApplicationContext(), "휴대폰을 한 번 흔들어 색을 섞어보세요!", Toast.LENGTH_SHORT).show();
                         }
                         break;
@@ -141,11 +143,13 @@ public class ColorMix extends Activity implements SensorEventListener {
                             board_L.setImageDrawable(board_2_yellow1);
                             turn = 1;
                             result = 0;
+                            firstCol = 1;
                         }
                         else {
                             board_R.setImageDrawable(board_2_yellow2);
                             turn = 0;
                             result = 1;
+                            secondCol = 1;
                             Toast.makeText(getApplicationContext(), "휴대폰을 한 번 흔들어 색을 섞어보세요!", Toast.LENGTH_SHORT).show();
                         }
                         break;
@@ -155,11 +159,13 @@ public class ColorMix extends Activity implements SensorEventListener {
                             board_L.setImageDrawable(board_2_green1);
                             turn = 1;
                             result = 0;
+                            firstCol = 2;
                         }
                         else {
                             board_R.setImageDrawable(board_2_green2);
                             turn = 0;
                             result = 1;
+                            secondCol = 2;
                             Toast.makeText(getApplicationContext(), "휴대폰을 한 번 흔들어 색을 섞어보세요!", Toast.LENGTH_SHORT).show();
                         }
                         break;
@@ -169,11 +175,13 @@ public class ColorMix extends Activity implements SensorEventListener {
                             board_L.setImageDrawable(board_2_blue1);
                             turn = 1;
                             result = 0;
+                            firstCol = 3;
                         }
                         else {
                             board_R.setImageDrawable(board_2_blue2);
                             turn = 0;
                             result = 1;
+                            secondCol = 3;
                             Toast.makeText(getApplicationContext(), "휴대폰을 한 번 흔들어 색을 섞어보세요!", Toast.LENGTH_SHORT).show();
                         }
                         break;
@@ -183,11 +191,13 @@ public class ColorMix extends Activity implements SensorEventListener {
                             board_L.setImageDrawable(board_2_purple1);
                             turn = 1;
                             result = 0;
+                            firstCol = 4;
                         }
                         else {
                             board_R.setImageDrawable(board_2_purple2);
                             turn = 0;
                             result = 1;
+                            secondCol = 4;
                             Toast.makeText(getApplicationContext(), "휴대폰을 한 번 흔들어 색을 섞어보세요!", Toast.LENGTH_SHORT).show();
                         }
                         break;
@@ -272,7 +282,8 @@ public class ColorMix extends Activity implements SensorEventListener {
                     ////////////////// 이벤트발생!!
                     Intent intent_ColorMix = new Intent(ColorMix.this, Result.class);
                     intent_ColorMix.putExtra("color", color);//*************************************************************************************************************************
-                    intent_ColorMix.putExtra("anw", anw);//*************************************************************************************************************************
+                    intent_ColorMix.putExtra("firstCol", firstCol);
+                    intent_ColorMix.putExtra("secondCol", secondCol);
                     intent_ColorMix.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);//*************************************************************************************************************************
                     startActivity(intent_ColorMix);
                     finish();

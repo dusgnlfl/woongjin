@@ -19,6 +19,7 @@ public class Result2 extends Activity {
     private BackPressCloseSystem backPressCloseSystem;
 
     int color; //미션 컬러
+    int firstCol, secondCol, thirdCol; //선택 컬러
     boolean anw; //정답 맞췄으면 true, 틀렸으면 false
 
     ImageView answer;
@@ -43,7 +44,9 @@ public class Result2 extends Activity {
         Intent intent = getIntent();
         if(intent != null) {
             color = intent.getIntExtra("color", 0);
-            anw = intent.getBooleanExtra("anw", true);
+            firstCol = intent.getIntExtra("firstCol", 0);
+            secondCol = intent.getIntExtra("secondCol", 0);
+            thirdCol = intent.getIntExtra("thirdCol", 0);
         }
 
         answer = (ImageView)findViewById(R.id.answer);

@@ -19,6 +19,7 @@ public class Result extends Activity {
     private BackPressCloseSystem backPressCloseSystem;
 
     int color; //미션 컬러
+    int firstCol, secondCol; //선택 컬러
     boolean anw; //정답 맞췄으면 true, 틀렸으면 false
 
     ImageView answer;
@@ -34,16 +35,19 @@ public class Result extends Activity {
 
         backPressCloseSystem = new BackPressCloseSystem(this);
 
+        ///결과화면 배경 지정하기 위해 ///
         ///////////////////////////////////////////////////////////////////
         int colors[] = {getResources().getColor(R.color.color_red), getResources().getColor(R.color.color_yellow), getResources().getColor(R.color.color_green)
                 , getResources().getColor(R.color.color_blue), getResources().getColor(R.color.color_purple)};
         rm = (ScalableLayout)findViewById(R.id.rm);
         //////////////////////////////////////////////////////////////////////////
 
+        ///////////////////////첫번째 선택 색, 두번째 선택 색, 미션색 받음
         Intent intent = getIntent();
         if(intent != null) {
             color = intent.getIntExtra("color", 0);
-            anw = intent.getBooleanExtra("anw", true);
+            firstCol = intent.getIntExtra("firstCol", 0);
+            secondCol = intent.getIntExtra("secondCol", 0);
         }
 
         answer = (ImageView)findViewById(R.id.answer);
