@@ -49,6 +49,8 @@ public class ColorMix2 extends Activity implements SensorEventListener {
     SensorManager sensorManager;
     Sensor accelerormeterSensor;
 
+    Button goToMain;
+
     int turn, result;
 
     @Override
@@ -75,6 +77,9 @@ public class ColorMix2 extends Activity implements SensorEventListener {
 
         ChangeBtn=(Button)findViewById(R.id.Changebtn);
         character=(ImageView)findViewById(R.id.cookie);
+
+        character.setImageResource(R.drawable.apple);
+
         //팔레트 버튼 가져오기
         ColBtnRed = (Button) findViewById(R.id.ColBtnRed);
         ColBtnYellow = (Button) findViewById(R.id.ColBtnYellow);
@@ -103,6 +108,8 @@ public class ColorMix2 extends Activity implements SensorEventListener {
         board_3_purple1 = getResources().getDrawable(R.mipmap.board_3_purple1);
         board_3_purple2 = getResources().getDrawable(R.mipmap.board_3_purple2);
         board_3_purple3 = getResources().getDrawable(R.mipmap.board_3_purple3);
+
+        goToMain = (Button)findViewById(R.id.goToMain);
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         accelerormeterSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -206,6 +213,12 @@ public class ColorMix2 extends Activity implements SensorEventListener {
                             Toast.makeText(getApplicationContext(), "휴대폰을 한 번 흔들어 색을 섞어보세요!", Toast.LENGTH_SHORT).show();
                         }
                         break;
+
+                    case R.id.goToMain:
+                        Intent i = new Intent(ColorMix2.this, MainActivity.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                        startActivity(i);
+                        break;
                 }
             }
         };
@@ -216,6 +229,7 @@ public class ColorMix2 extends Activity implements SensorEventListener {
         ColBtnGreen.setOnClickListener(listener);
         ColBtnBlue.setOnClickListener(listener);
         ColBtnPurple.setOnClickListener(listener);
+        goToMain.setOnClickListener(listener);
 
     }
 

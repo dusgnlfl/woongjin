@@ -50,8 +50,6 @@ public class Result2 extends Activity {
             btnFalse.setVisibility(View.VISIBLE);
         }
 
-
-
         View.OnClickListener listener = new View.OnClickListener() {
             public void onClick(View v) {
                 switch (v.getId()) {
