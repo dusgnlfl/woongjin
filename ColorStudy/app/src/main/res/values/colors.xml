@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
@@ -9,5 +10,19 @@
     <color name="color_green">#008000</color>
     <color name="color_blue">#0000FF</color>
     <color name="color_purple">#800080</color>
+
+    <color name="orange">#FF7F00</color> <!-- 주황색 !-->
+    <color name="yellowGreen">#9ACD32</color> <!-- 연두색 !-->
+    <color name="blueGreen">#005666</color> <!-- 청록색 !-->
+    <color name="bluishViolet">#2a365c</color> <!-- 남색 !-->
+    <color name="plum">#8E4585</color> <!-- 자주색 !-->
+
+    <color name="crimson">#FF4500</color> <!-- 다홍색 !-->
+    <color name="tangerine">#f9a03a</color> <!-- 귤색 !-->
+    <color name="greenYellow">#ADFF2F</color> <!-- 노연색 !-->
+    <color name="grassGreen">#75a64a</color> <!-- 풀색 !-->
+    <color name="sea">#0078ac</color> <!-- 바다색 !-->
+    <color name="prussianBlue">#003153</color> <!-- 감청색 !-->
+    <color name="madderRed">#d92e58</color> <!-- 연지색 !-->
 
 </resources>
