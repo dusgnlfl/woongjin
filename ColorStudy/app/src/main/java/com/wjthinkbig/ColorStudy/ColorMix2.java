@@ -24,6 +24,8 @@ public class ColorMix2 extends Activity implements SensorEventListener {
 
     Button ColBtnRed, ColBtnYellow, ColBtnGreen, ColBtnBlue, ColBtnPurple;
 
+    private BackPressCloseSystem backPressCloseSystem;
+
     /////////////////////////
     Button missionColor;
     public int random, color;//*************************************************************************************************************************
@@ -57,6 +59,8 @@ public class ColorMix2 extends Activity implements SensorEventListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.color_mix_main2);
+
+        backPressCloseSystem = new BackPressCloseSystem(this);
 
         ///////////////////////미션 색 나오는 버튼////////////////////
         int colors[] = {getResources().getColor(R.color.color_red), getResources().getColor(R.color.color_yellow), getResources().getColor(R.color.color_green)
@@ -310,5 +314,10 @@ public class ColorMix2 extends Activity implements SensorEventListener {
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        backPressCloseSystem.onBackPressed();
     }
 }

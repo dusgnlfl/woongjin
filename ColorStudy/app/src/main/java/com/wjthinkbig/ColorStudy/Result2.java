@@ -79,4 +79,5 @@ public class Result2 extends Activity {
         exit.setOnClickListener(listener);
 
     }
+
 }

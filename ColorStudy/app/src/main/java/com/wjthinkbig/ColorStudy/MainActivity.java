@@ -12,6 +12,8 @@ import android.widget.Button;
 
 public class MainActivity extends Activity {
 
+    private BackPressCloseSystem backPressCloseSystem;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +21,8 @@ public class MainActivity extends Activity {
 
         findViewById(R.id.btn1).setOnClickListener(btnClickListener);
         findViewById(R.id.btn2).setOnClickListener(btnClickListener);
+
+        backPressCloseSystem = new BackPressCloseSystem(this);
 
     }
 
@@ -56,5 +60,10 @@ public class MainActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        backPressCloseSystem.onBackPressed();
     }
 }
