@@ -45,6 +45,16 @@ public class Result2 extends Activity {
         rm2 = (ScalableLayout)findViewById(R.id.rm2);
         //////////////////////////////////////////////////////////////////////////
 
+        DBmanager dbManager=new DBmanager(getApplicationContext(), "secondstep.db", null, 1);
+
+        dbManager.insert("insert into SECOND_COLOR values(null, 1, 0, 0, 10);");
+        dbManager.insert("insert into SECOND_COLOR values(null, 0, 1, 1, 11);");
+        dbManager.insert("insert into SECOND_COLOR values(null, 2, 1, 1, 12);");
+        dbManager.insert("insert into SECOND_COLOR values(null, 1, 2, 2, 13);");
+        dbManager.insert("insert into SECOND_COLOR values(null, 2, 3, 3, 14);");
+        dbManager.insert("insert into SECOND_COLOR values(null, 4, 3, 3, 15);");
+        dbManager.insert("insert into SECOND_COLOR values(null, 4, 0, 0, 16);");
+
         Intent intent = getIntent();
         if(intent != null) {
             color = intent.getIntExtra("color", 0);
@@ -60,6 +70,8 @@ public class Result2 extends Activity {
         btnTrue = (Button)findViewById(R.id.btnTrue); //다른 문제 풀기 버튼
         btnFalse = (Button)findViewById(R.id.btnFalse); //다시 풀기 버튼
         exit = (Button)findViewById(R.id.exit); //나가기 버튼
+
+        anw=dbManager.secondCorrect(firstCol,secondCol,thirdCol,color);
 
         if(anw == true) { /////////////정답 맞췄을 때
             answer.setImageDrawable(anwTrue);

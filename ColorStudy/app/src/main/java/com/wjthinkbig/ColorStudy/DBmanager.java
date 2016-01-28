@@ -1,6 +1,7 @@
 package com.wjthinkbig.ColorStudy;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -23,5 +24,23 @@ public class DBmanager extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL(_query);
         db.close();
+    }
+    public boolean secondCorrect(int first, int second, int third, int result) {
+        SQLiteDatabase db=getReadableDatabase();
+        boolean ans;
+
+        Cursor cursor = db.rawQuery("select * from SECOND_COLOR", null);
+        while(cursor.moveToNext()) {
+            if(cursor.getInt(4)==result) {
+                if( (cursor.getInt(1)==first && cursor.getInt(2)==second && cursor.getInt(3)==third) ||
+                        (cursor.getInt(1)==second && cursor.getInt(2)==first && cursor.getInt(3)==third) ||
+                        (cursor.getInt(1)==third && cursor.getInt(2)==second && cursor.getInt(3)==first) ) {
+                    ans=true;
+                    return ans;
+                }
+            }
+        }
+        ans=false;
+        return ans;
     }
 }
