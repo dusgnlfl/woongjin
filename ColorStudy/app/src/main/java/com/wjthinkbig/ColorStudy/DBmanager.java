@@ -43,4 +43,22 @@ public class DBmanager extends SQLiteOpenHelper {
         ans=false;
         return ans;
     }
+
+    public boolean firstCorrect(int first, int second, int result) {
+        SQLiteDatabase db=getReadableDatabase();
+        boolean ans;
+
+        Cursor cursor = db.rawQuery("select * from FIRST_COLOR", null);
+        while(cursor.moveToNext()) {
+            if(cursor.getInt(3)==result) {
+                if( (cursor.getInt(1)==first && cursor.getInt(2)==second ) ||
+                        (cursor.getInt(1)==second && cursor.getInt(2)==first)  ) {
+                    ans=true;
+                    return ans;
+                }
+            }
+        }
+        ans=false;
+        return ans;
+    }
 }
