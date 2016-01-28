@@ -48,11 +48,11 @@ public class Result extends Activity {
 
         DBmanager dbManager=new DBmanager(getApplicationContext(), "firststep.db", null, 1);
 
-        dbManager.insert("insert into SECOND_COLOR values(null, 1, 0, 5);");
-        dbManager.insert("insert into SECOND_COLOR values(null, 2, 1, 6);");
-        dbManager.insert("insert into SECOND_COLOR values(null, 2, 3, 7);");
-        dbManager.insert("insert into SECOND_COLOR values(null, 3, 4, 8);");
-        dbManager.insert("insert into SECOND_COLOR values(null, 0, 4, 9);");
+        dbManager.insert("insert into FIRST_COLOR values(null, 1, 0, 5);");
+        dbManager.insert("insert into FIRST_COLOR values(null, 2, 1, 6);");
+        dbManager.insert("insert into FIRST_COLOR values(null, 2, 3, 7);");
+        dbManager.insert("insert into FIRST_COLOR values(null, 3, 4, 8);");
+        dbManager.insert("insert into FIRST_COLOR values(null, 0, 4, 9);");
 
         ///////////////////////첫번째 선택 색, 두번째 선택 색, 미션색 받음
         Intent intent = getIntent();
