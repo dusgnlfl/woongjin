@@ -46,15 +46,13 @@ public class Result extends Activity {
         rm = (ScalableLayout)findViewById(R.id.rm);
         //////////////////////////////////////////////////////////////////////////
 
-        DBmanager dbManager=new DBmanager(getApplicationContext(), "secondstep.db", null, 1);
+        DBmanager dbManager=new DBmanager(getApplicationContext(), "firststep.db", null, 1);
 
-        dbManager.insert("insert into SECOND_COLOR values(null, 1, 0, 0, 10);");
-        dbManager.insert("insert into SECOND_COLOR values(null, 0, 1, 1, 11);");
-        dbManager.insert("insert into SECOND_COLOR values(null, 2, 1, 1, 12);");
-        dbManager.insert("insert into SECOND_COLOR values(null, 1, 2, 2, 13);");
-        dbManager.insert("insert into SECOND_COLOR values(null, 2, 3, 3, 14);");
-        dbManager.insert("insert into SECOND_COLOR values(null, 4, 3, 3, 15);");
-        dbManager.insert("insert into SECOND_COLOR values(null, 4, 0, 0, 16);");
+        dbManager.insert("insert into SECOND_COLOR values(null, 1, 0, 5);");
+        dbManager.insert("insert into SECOND_COLOR values(null, 2, 1, 6);");
+        dbManager.insert("insert into SECOND_COLOR values(null, 2, 3, 7);");
+        dbManager.insert("insert into SECOND_COLOR values(null, 3, 4, 8);");
+        dbManager.insert("insert into SECOND_COLOR values(null, 0, 4, 9);");
 
         ///////////////////////첫번째 선택 색, 두번째 선택 색, 미션색 받음
         Intent intent = getIntent();
